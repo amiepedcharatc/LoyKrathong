@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TestColor : MonoBehaviour
 {
-    public MeshRenderer meshRenderer; 
+    public MeshRenderer meshRenderer;
+    public float timeToFloat;
+    float timer;
+    
 
     void Start()
     {
@@ -15,7 +18,8 @@ public class TestColor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        timer = timer + Time.deltaTime;
+        if (timer >= timeToFloat)
         {
             changeColor();
         }
@@ -23,5 +27,6 @@ public class TestColor : MonoBehaviour
     void changeColor()
     {
         meshRenderer.material.color = Random.ColorHSV();
+   
     }
 }
