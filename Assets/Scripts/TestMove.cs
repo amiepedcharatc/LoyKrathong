@@ -5,11 +5,11 @@ using UnityEngine;
 public class TestMove : MonoBehaviour
 {
     bool hasFlown = false;
-    public GameObject prefab;
-    public float timeToFly;
+    public GameObject[] prefab;
+    public float timeToFloat;
     float timer;
-    public int lanternToSpawn;
-    private int lanternMax;
+    public int lanternToSpawnMin;
+    private int lanternToSpawnMax;
     
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,16 @@ public class TestMove : MonoBehaviour
     void Update()
     {
 
-        if (lanternMax >= lanternToSpawn) return;
+        if (lanternToSpawnMax >= lanternToSpawnMin) return;
 
         timer = timer + Time.deltaTime;
-        if (timer >= timeToFly)
+        if (timer >= timeToFloat)
         {
             timer = 0f;
-            lanternMax = lanternMax + 1;
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-4, 5), Random.Range(0, 5), Random.Range(0, 6));
-            Instantiate(prefab, randomSpawnPosition, Quaternion.identity);
+            lanternToSpawnMax = lanternToSpawnMax + 1;
+            int randomIndex = Random.Range(0, prefab.Length);
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-10, 11), Random.Range(5, 15), Random.Range(-10, 11));
+            Instantiate(prefab[randomIndex], randomSpawnPosition, Quaternion.identity);
         }
     }
 

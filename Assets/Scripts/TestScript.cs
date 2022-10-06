@@ -21,7 +21,7 @@ void Update()
         timer = timer + Time.deltaTime;
         if (timer >= timeToStart)
         {
-            Instantiate(prefab).GetComponent<Light>().intensity = 10f;
+            Instantiate(prefab).GetComponent<Light>().intensity = 1f;
             lightIsOn = true; 
         }
     }

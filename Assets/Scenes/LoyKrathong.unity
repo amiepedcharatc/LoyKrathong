@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 152021837}
   - component: {fileID: 152021836}
   m_Layer: 0
-  m_Name: Lanterns
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,9 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b456ab13647a1bd4380d8321e081db71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 895945780145157427, guid: 63ca889604f25d745801eee83ca8d24a, type: 3}
-  timeToFly: 3
-  lanternToSpawn: 20
+  prefab:
+  - {fileID: 8076056552577239741, guid: 7c919a0c61387d64ca904732d06b1091, type: 3}
+  - {fileID: 895945780145157427, guid: 63ca889604f25d745801eee83ca8d24a, type: 3}
+  - {fileID: 8065092010005409187, guid: 95b1008b5ba98034e9972552bd5aa135, type: 3}
+  timeToFloat: 2
+  lanternToSpawnMin: 20
 --- !u!4 &152021837
 Transform:
   m_ObjectHideFlags: 0
@@ -163,7 +166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152021835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9225641, y: 1.3588775, z: 1.1795733}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1245,6 +1248,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Rig Advanced
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683195716791022644, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2683195716791022646, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -4115,8 +4123,9 @@ GameObject:
   - component: {fileID: 1269715762}
   - component: {fileID: 1269715761}
   - component: {fileID: 1269715760}
-  - component: {fileID: 1269715759}
   - component: {fileID: 1269715758}
+  - component: {fileID: 1269715759}
+  - component: {fileID: 1269715764}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4231,6 +4240,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269715764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269715757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2dbee92a344864a943e72a9e5ea878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1269715761}
 --- !u!1 &1303762792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5478,7 +5500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1610230623
 Light:
   m_ObjectHideFlags: 0
