@@ -10,7 +10,6 @@ public class TestMove : MonoBehaviour
     float timer;
     public int lanternToSpawn;
     private int lanternMax;
-
     
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class TestMove : MonoBehaviour
         {
             timer = 0f;
             lanternMax = lanternMax + 1;
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-4, 5), Random.Range(0, 5), Random.Range(-4, 5));
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-4, 5), Random.Range(0, 5), Random.Range(0, 6));
             Instantiate(prefab, randomSpawnPosition, Quaternion.identity);
         }
     }

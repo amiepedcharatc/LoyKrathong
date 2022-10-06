@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestRandom : MonoBehaviour
+public class TestFloat : MonoBehaviour
 {
-    float chanceOfHappening = 0.5f;
-    GameObject toSpawn;
-    public List<GameObject> lanternPrefabs;
-
+    public float speed = -5f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +15,6 @@ public class TestRandom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
     }
 }
