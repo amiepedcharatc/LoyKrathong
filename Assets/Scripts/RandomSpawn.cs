@@ -11,11 +11,6 @@ public class RandomSpawn : MonoBehaviour
     public int lanternToSpawnMin;
     private int lanternToSpawnMax;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
