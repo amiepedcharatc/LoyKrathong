@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomSpawnForce : MonoBehaviour
 {
-    public GameObject lanternPrefab;
+    public GameObject [] lanternPrefab;
     public Transform lanternSpawnPoint;
     public float timeToFloat;
     float timer;
@@ -21,10 +21,10 @@ public class RandomSpawnForce : MonoBehaviour
         {
             timer = 0f;
             lantermSpawn = lantermSpawn + 1;
+            int randomIndex = Random.Range(0, lanternPrefab.Length);
             Vector3 randomSpawnPosition = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
-            GameObject lanternInstance = Instantiate(lanternPrefab, randomSpawnPosition, Quaternion.identity);
+            GameObject lanternInstance = Instantiate(lanternPrefab[randomIndex], randomSpawnPosition, Quaternion.identity);
             lanternInstance.GetComponent<Rigidbody>().AddForce(lanternSpawnPoint.up * lanternSpeed, ForceMode.Impulse);
-            
         }
     }
 }
