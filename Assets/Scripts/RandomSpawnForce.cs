@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class RandomSpawnForce : MonoBehaviour
 {
-    public Rigidbody lanternPrefab;
+    public GameObject lanternPrefab;
     public Transform lanternSpawnPoint;
     public float timeToFloat;
     float timer;
     public int lanternSpawnMax;
     private int lantermSpawn;
+    public float lanternSpeed;
 
-
-    void Start()
-    {
-        lanternPrefab = GetComponent<Rigidbody>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -25,10 +21,9 @@ public class RandomSpawnForce : MonoBehaviour
         {
             timer = 0f;
             lantermSpawn = lantermSpawn + 1;
-            Rigidbody lanternInstance;
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-10, 11), Random.Range(5, 15), Random.Range(-10, 11));
-            lanternInstance = Instantiate(lanternPrefab, randomSpawnPosition, Quaternion.identity);
-            lanternInstance.AddForce(lanternSpawnPoint.up * 100);
+            Vector3 randomSpawnPosition = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
+            GameObject lanternInstance = Instantiate(lanternPrefab, randomSpawnPosition, Quaternion.identity);
+            lanternInstance.GetComponent<Rigidbody>().AddForce(lanternSpawnPoint.up * lanternSpeed, ForceMode.Impulse);
             
         }
     }
