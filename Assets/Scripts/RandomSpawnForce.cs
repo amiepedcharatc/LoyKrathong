@@ -22,7 +22,7 @@ public class RandomSpawnForce : MonoBehaviour
             timer = 0f;
             lanternSpawn = lanternSpawn + 1;
             int randomIndex = Random.Range(0, lanternPrefab.Length);
-            Vector3 randomSpawnPosition = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
+            Vector3 randomSpawnPosition = new Vector3(transform.position.x + Random.Range(-20, 55), transform.position.y, transform.position.z + Random.Range(-20, 55));
             GameObject lanternInstance = Instantiate(lanternPrefab[randomIndex], randomSpawnPosition, Quaternion.identity);
             lanternInstance.GetComponent<Rigidbody>().AddForce(lanternSpawnPoint.up * lanternSpeed, ForceMode.Impulse);
         }
