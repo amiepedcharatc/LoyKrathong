@@ -9,7 +9,7 @@ public class RandomSpawnForce : MonoBehaviour
     public float timeToFloat;
     float timer;
     public int lanternSpawnMax;
-    private int lantermSpawn;
+    private int lanternSpawn;
     public float lanternSpeed;
 
 
@@ -20,7 +20,7 @@ public class RandomSpawnForce : MonoBehaviour
         if (timer >= timeToFloat)
         {
             timer = 0f;
-            lantermSpawn = lantermSpawn + 1;
+            lanternSpawn = lanternSpawn + 1;
             int randomIndex = Random.Range(0, lanternPrefab.Length);
             Vector3 randomSpawnPosition = new Vector3(transform.position.x + Random.Range(-10, 11), transform.position.y, transform.position.z + Random.Range(-10, 11));
             GameObject lanternInstance = Instantiate(lanternPrefab[randomIndex], randomSpawnPosition, Quaternion.identity);
